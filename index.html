@@ -3,231 +3,205 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xét tuyển - Đại học Chí Đức</title>
+  <title>Tuyển sinh - Đại học Chí Đức</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: white;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
       color: #333;
+      line-height: 1.6;
     }
 
-    .top-header {
-      background-color: #003366;
-      color: white;
+    header {
+      background-color: #002147;
+      color: #fff;
       padding: 20px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .logo-section {
       display: flex;
       align-items: center;
-      gap: 15px;
-      max-width: 1000px;
-      text-align: center;
-      padding: 0 10px;
+      gap: 20px;
+      justify-content: center;
     }
 
     .logo-section img {
-      height: 90px;
-      width: auto;
+      height: 130px;
       border-radius: 10px;
     }
 
     .title-text h1 {
-      margin: 0;
-      font-size: 22px;
+      font-size: 24px;
     }
 
     .title-text p {
-      margin: 0;
       font-size: 14px;
     }
 
-    /* Toggle button */
     .menu-toggle {
       display: none;
-      background-color: #003366;
-      color: white;
+      background: #002147;
+      color: #fff;
       border: none;
-      padding: 10px 15px;
-      font-size: 18px;
-      cursor: pointer;
+      padding: 12px;
       width: 100%;
       text-align: left;
+      font-size: 18px;
     }
 
     nav {
-      background-color: #eee;
-      padding: 10px;
+      background: #004080;
       text-align: center;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
     }
 
     nav a {
-      color: #003366;
+      display: inline-block;
+      color: white;
       text-decoration: none;
+      padding: 15px 20px;
       font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #003060;
     }
 
     main {
-      padding: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
+      padding: 40px 20px;
     }
 
-    h2 {
-      color: #003366;
+    section {
+      margin-bottom: 40px;
     }
 
-    ul {
-      background-color: #f4f4f4;
-      padding: 15px;
-      border-radius: 8px;
-    }
-
-    ul li {
+    section h2 {
+      color: #004080;
       margin-bottom: 10px;
     }
 
-    .form-box {
-      margin-top: 30px;
-      background-color: #f9f9f9;
+    ul {
+      background-color: #fff;
       padding: 20px;
       border-radius: 10px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    dialog {
+      border: none;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     .form-box input,
     .form-box select,
     .form-box button {
-      padding: 10px;
-      margin: 8px 0;
       width: 100%;
-      border-radius: 5px;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
       border: 1px solid #ccc;
     }
 
     .form-box button {
-      background-color: orange;
+      background-color: #f57c00;
       color: white;
       border: none;
-      cursor: pointer;
+      font-weight: bold;
     }
 
     .form-box button:hover {
-      background-color: darkorange;
+      background-color: #e65100;
     }
 
-    .footer {
-      background-color: #0d0d80;
+    footer {
+      background-color: #002147;
       color: white;
       padding: 20px 0;
+      text-align: center;
+      position: relative;
     }
 
-    .footer-container {
-      max-width: 1000px;
-      margin: 0 auto;
+    #chatbot-button {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background-color: #f57c00;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
       display: flex;
-      justify-content: space-between;
-      padding: 0 20px;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
     }
 
-    .footer-left,
-    .footer-right {
-      flex: 1;
-      min-width: 250px;
-    }
-
-    .footer p {
-      margin: 5px 0;
-      line-height: 1.6;
-    }
-
-    /* Responsive adjustments */
     @media (max-width: 768px) {
       .logo-section {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
       }
-
-      .logo-section img {
-        height: 70px;
-      }
-
-      .title-text h1 {
-        font-size: 18px;
-      }
-
-      .title-text p {
-        font-size: 13px;
-      }
-
       nav {
         display: none;
         flex-direction: column;
-        text-align: center;
-        background-color: #eee;
-        padding: 10px 0;
       }
-
       nav.show {
         display: flex;
       }
-
       .menu-toggle {
         display: block;
-      }
-
-      .footer-container {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer-left,
-      .footer-right {
-        margin-bottom: 15px;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- Top Header -->
-  <div class="top-header">
-    <div class="logo-section">
-      <img src="/assest/logo-removebg-preview.png" alt="Logo Trường Đại học Chí Đức">
+  <header>
+    <div class="container logo-section">
+      <img src="/assest/logo-removebg-preview.png" alt="Logo">
       <div class="title-text">
         <h1>TRƯỜNG ĐẠI HỌC CHÍ ĐỨC</h1>
         <p>Kiến thức vững vàng – Đạo đức trọn vẹn</p>
       </div>
     </div>
-  </div>
+  </header>
 
-  <!-- Toggle button -->
   <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
 
-  <!-- Navigation -->
-  <nav>
+  <nav class="container" id="mainNav">
     <a href="#hocba" onclick="toggleMenu()">Xét học bạ</a>
-    <a href="#thpt" onclick="toggleMenu()">Xét điểm thi THPT</a>
+    <a href="#thpt" onclick="toggleMenu()">Xét điểm thi</a>
     <a href="#tuyenthang" onclick="toggleMenu()">Xét tuyển thẳng</a>
-    <a href="#form" onclick="toggleMenu()">Đăng ký</a>
+    <a href="#" onclick="openDialog();toggleMenu();">Đăng ký</a>
   </nav>
 
-  <main>
+  <main class="container">
     <section id="hocba">
       <h2>1. Xét tuyển học bạ</h2>
       <ul>
@@ -238,9 +212,9 @@
     </section>
 
     <section id="thpt">
-      <h2>2. Xét điểm thi THPT Quốc gia</h2>
+      <h2>2. Xét điểm thi THPT</h2>
       <ul>
-        <li>Dựa vào kết quả thi tốt nghiệp THPT năm gần nhất.</li>
+        <li>Dựa vào kết quả thi tốt nghiệp THPT gần nhất.</li>
         <li>Tổng điểm 3 môn theo tổ hợp >= 18 điểm.</li>
       </ul>
     </section>
@@ -249,40 +223,52 @@
       <h2>3. Xét tuyển thẳng</h2>
       <ul>
         <li>Học sinh đạt giải học sinh giỏi cấp tỉnh/thành trở lên.</li>
-        <li>Thí sinh thuộc diện ưu tiên theo quy định Bộ GDĐT.</li>
+        <li>Thí sinh thuộc diện ưu tiên theo quy định của Bộ.</li>
       </ul>
-    </section>
-
-    <section class="form-box" id="form">
-      <h2>Đăng ký xét tuyển</h2>
-      <form onsubmit="return validateForm()">
-        <input type="text" id="name" placeholder="Họ và tên" required />
-        <input type="email" id="email" placeholder="Email" required />
-        <select id="method">
-          <option value="">--Chọn hình thức xét tuyển--</option>
-          <option value="hocba">Xét học bạ</option>
-          <option value="thpt">Xét điểm thi THPT</option>
-          <option value="tuyenthang">Xét tuyển thẳng</option>
-        </select>
-        <button type="submit">Gửi đăng ký</button>
-      </form>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-left">
-        <p>Trụ sở chính:<br>70 Nguyễn Quang, Phường 13, Quận Tân Bình, TP.HCM</p>
+  <dialog id="formDialog">
+    <form class="form-box" onsubmit="return validateForm()">
+      <h2>Đăng ký xét tuyển</h2>
+      <input type="text" id="name" placeholder="Họ và tên" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <select id="method" required>
+        <option value="">--Chọn hình thức xét tuyển--</option>
+        <option value="hocba">Xét học bạ</option>
+        <option value="thpt">Xét điểm thi THPT</option>
+        <option value="tuyenthang">Xét tuyển thẳng</option>
+      </select>
+      <button type="submit">Gửi đăng ký</button>
+      <button type="button" onclick="closeDialog()">Đóng</button>
+    </form>
+  </dialog>
+  
+  <dialog id="chatDialog">
+    <form method="dialog" style="padding: 0;">
+      <div style="padding: 20px;">
+        <h3>💬 Hỗ trợ tuyển sinh</h3>
+        <p>Chào bạn! Bạn cần hỗ trợ gì? Hãy để lại tin nhắn tại đây.</p>
+        <textarea rows="4" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;" placeholder="Nhập nội dung..."></textarea>
+        <br>
+        <button style="margin-top: 10px; background-color: #f57c00; color: white; border: none; padding: 10px 15px; border-radius: 5px;">Gửi</button>
+        <button type="button" onclick="closeChatDialog()" style="margin-left: 10px; padding: 10px 15px;">Đóng</button>
       </div>
-      <div class="footer-right">
-        <p>Hotline: 0912111822<br>Email: cdu@edu.vn</p>
-      </div>
+    </form>
+  </dialog>
+
+  <footer>
+    <div class="container">
+      <p>Trụ sở: 70 Nguyễn Quang, P.13, Q.Tân Bình, TP.HCM</p>
+      <p>Hotline: 0912111822 | Email: cdu@edu.vn</p>
     </div>
   </footer>
 
+  <button id="chatbot-button" onclick="openChatDialog()">💬</button>
+
   <script>
     function toggleMenu() {
-      const nav = document.querySelector("nav");
+      const nav = document.getElementById("mainNav");
       nav.classList.toggle("show");
     }
 
@@ -297,8 +283,24 @@
       }
 
       alert("Đăng ký thành công! Chúng tôi sẽ liên hệ với bạn.");
+      closeDialog();
       return false;
     }
+
+    function openDialog() {
+      document.getElementById("formDialog").showModal();
+    }
+
+    function closeDialog() {
+      document.getElementById("formDialog").close();
+    }
+    function openChatDialog() {
+  document.getElementById("chatDialog").showModal();
+}
+
+function closeChatDialog() {
+  document.getElementById("chatDialog").close();
+}
   </script>
 </body>
 </html>
