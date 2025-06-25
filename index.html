@@ -4,134 +4,202 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Xét tuyển - Đại học Chí Đức</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       background-color: white;
       color: #333;
     }
+
     .top-header {
-  background-color: #003366;
-  color: white;
-  padding: 20px 0;
-  display: flex;
-  justify-content: center; /* ⭐ Căn giữa theo chiều ngang */
-  align-items: center;
-}
+      background-color: #003366;
+      color: white;
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.logo-section {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  max-width: 1000px; /* Giới hạn chiều rộng */
-  text-align: center;
-}
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      max-width: 1000px;
+      text-align: center;
+      padding: 0 10px;
+    }
 
-.logo-section img {
-  height: 90px;
-  width: auto; /* Giữ tỷ lệ gốc của logo */
-  border-radius: 10px; /* Bo góc logo */
-}
+    .logo-section img {
+      height: 90px;
+      width: auto;
+      border-radius: 10px;
+    }
 
-.title-text h1 {
-  margin: 0;
-  font-size: 22px;
-}
+    .title-text h1 {
+      margin: 0;
+      font-size: 22px;
+    }
 
-.title-text p {
-  margin: 0;
-  font-size: 14px;
-}
+    .title-text p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* Toggle button */
+    .menu-toggle {
+      display: none;
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 18px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+    }
+
     nav {
       background-color: #eee;
       padding: 10px;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
     }
+
     nav a {
-      margin: 0 15px;
       color: #003366;
       text-decoration: none;
       font-weight: bold;
     }
-    .logo {
-      width: 300px;
-      height: auto;
-     
-    }
+
     main {
       padding: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
+
     h2 {
       color: #003366;
     }
+
     ul {
       background-color: #f4f4f4;
       padding: 15px;
       border-radius: 8px;
     }
+
     ul li {
       margin-bottom: 10px;
     }
+
     .form-box {
       margin-top: 30px;
       background-color: #f9f9f9;
       padding: 20px;
       border-radius: 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .form-box input, .form-box select, .form-box button {
+
+    .form-box input,
+    .form-box select,
+    .form-box button {
       padding: 10px;
       margin: 8px 0;
       width: 100%;
       border-radius: 5px;
       border: 1px solid #ccc;
     }
+
     .form-box button {
       background-color: orange;
       color: white;
       border: none;
       cursor: pointer;
     }
+
     .form-box button:hover {
       background-color: darkorange;
     }
 
     .footer {
-    background-color: #0d0d80; /* Xanh đậm */
-    color: white;
-    padding: 20px 0;
-  }
+      background-color: #0d0d80;
+      color: white;
+      padding: 20px 0;
+    }
 
-  .footer-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-    flex-wrap: wrap;
-  }
-
-  .footer-left,
-  .footer-right {
-    flex: 1;
-    min-width: 250px;
-  }
-
-  .footer p {
-    margin: 5px 0;
-    line-height: 1.6;
-  }
-
-  @media (max-width: 600px) {
     .footer-container {
-      flex-direction: column;
-      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      flex-wrap: wrap;
     }
 
     .footer-left,
     .footer-right {
-      margin-bottom: 15px;
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer p {
+      margin: 5px 0;
+      line-height: 1.6;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .logo-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .logo-section img {
+        height: 70px;
+      }
+
+      .title-text h1 {
+        font-size: 18px;
+      }
+
+      .title-text p {
+        font-size: 13px;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        background-color: #eee;
+        padding: 10px 0;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-left,
+      .footer-right {
+        margin-bottom: 15px;
+      }
     }
   </style>
 </head>
@@ -148,11 +216,15 @@
     </div>
   </div>
 
+  <!-- Toggle button -->
+  <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+
+  <!-- Navigation -->
   <nav>
-    <a href="#hocba">Xét học bạ</a>
-    <a href="#thpt">Xét điểm thi THPT</a>
-    <a href="#tuyenthang">Xét tuyển thẳng</a>
-    <a href="#form">Đăng ký</a>
+    <a href="#hocba" onclick="toggleMenu()">Xét học bạ</a>
+    <a href="#thpt" onclick="toggleMenu()">Xét điểm thi THPT</a>
+    <a href="#tuyenthang" onclick="toggleMenu()">Xét tuyển thẳng</a>
+    <a href="#form" onclick="toggleMenu()">Đăng ký</a>
   </nav>
 
   <main>
@@ -209,6 +281,11 @@
   </footer>
 
   <script>
+    function toggleMenu() {
+      const nav = document.querySelector("nav");
+      nav.classList.toggle("show");
+    }
+
     function validateForm() {
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
@@ -220,9 +297,8 @@
       }
 
       alert("Đăng ký thành công! Chúng tôi sẽ liên hệ với bạn.");
-      return false; // Ngăn form reload trang
+      return false;
     }
   </script>
-
 </body>
 </html>
