@@ -20,35 +20,40 @@
     }
 
     header {
-      background-color: #002147;
+      background-color: #fff;
       color: #fff;
       padding: 20px 0;
     }
 
     .container {
-      width: 90%;
-      max-width: 1200px;
+      
+
       margin: 0 auto;
     }
 
     .logo-section {
       display: flex;
-      align-items: center;
+
       gap: 20px;
-      justify-content: center;
+ 
     }
 
     .logo-section img {
       height: 130px;
       border-radius: 10px;
     }
-
+    .title-text{
+     margin-top: 40px;
+    }
     .title-text h1 {
       font-size: 24px;
+      color:#191970;
     }
 
     .title-text p {
       font-size: 14px;
+      color:#191970;
+
     }
 
     .menu-toggle {
@@ -116,27 +121,77 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+    .form-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
 
-    .form-box input,
-    .form-box select,
-    .form-box button {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
+          .form-box {
+        background: #ffffff;
+       
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        max-width: 400px;
+        transition: transform 0.3s ease;
+      }
 
-    .form-box button {
-      background-color: #f57c00;
-      color: white;
-      border: none;
-      font-weight: bold;
-    }
+      .form-box h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #333;
+      }
 
-    .form-box button:hover {
-      background-color: #e65100;
-    }
+      .form-box input,
+      .form-box select {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .form-box input:focus,
+      .form-box select:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+      }
+
+      .form-box button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        transition: background-color 0.3s ease;
+      }
+
+      .form-box button[type="submit"] {
+        background-color: #007bff;
+        color: white;
+      }
+
+      .form-box button[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+
+      .form-box button[type="button"] {
+        background-color: #6c757d;
+        color: white;
+      }
+
+      .form-box button[type="button"]:hover {
+        background-color: #495057;
+      }
+
 
     footer {
       background-color: #002147;
@@ -184,7 +239,7 @@
 <body>
   <header>
     <div class="container logo-section">
-      <img src="/assest/logo-removebg-preview.png" alt="Logo">
+      <img src="https://deathheart1108.github.io/TrangChu/image/logo.jpg" alt="Logo">
       <div class="title-text">
         <h1>TRƯỜNG ĐẠI HỌC CHÍ ĐỨC</h1>
         <p>Kiến thức vững vàng – Đạo đức trọn vẹn</p>
@@ -192,13 +247,14 @@
     </div>
   </header>
 
+
   <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
 
   <nav class="container" id="mainNav">
-    <a href="#hocba" onclick="toggleMenu()">Xét học bạ</a>
-    <a href="#thpt" onclick="toggleMenu()">Xét điểm thi</a>
-    <a href="#tuyenthang" onclick="toggleMenu()">Xét tuyển thẳng</a>
-    <a href="#" onclick="openDialog();toggleMenu();">Đăng ký</a>
+    <a href="#hocba" onclick="toggleMenu()">Thông tin trường</a>
+    <a href="#thpt" onclick="toggleMenu()">Ngành đào tạo</a>
+    <a href="#tuyenthang" onclick="toggleMenu()">Hình thức xét tuyển  </a>
+    <a href="#">Liên hệ hỗ trợ</a>
   </nav>
 
   <main class="container">
@@ -227,22 +283,21 @@
       </ul>
     </section>
   </main>
-
-  <dialog id="formDialog">
-    <form class="form-box" onsubmit="return validateForm()">
-      <h2>Đăng ký xét tuyển</h2>
-      <input type="text" id="name" placeholder="Họ và tên" required />
-      <input type="email" id="email" placeholder="Email" required />
-      <select id="method" required>
-        <option value="">--Chọn hình thức xét tuyển--</option>
-        <option value="hocba">Xét học bạ</option>
-        <option value="thpt">Xét điểm thi THPT</option>
-        <option value="tuyenthang">Xét tuyển thẳng</option>
-      </select>
-      <button type="submit">Gửi đăng ký</button>
-      <button type="button" onclick="closeDialog()">Đóng</button>
-    </form>
-  </dialog>
+  <div class="form-wrapper">
+        <form class="form-box" onsubmit="return validateForm()">
+          <h2>Đăng ký xét tuyển</h2>
+          <input type="text" id="name" placeholder="Họ và tên" required />
+          <input type="email" id="email" placeholder="Email" required />
+          <select id="method" required>
+            <option value="">--Chọn hình thức xét tuyển--</option>
+            <option value="hocba">Xét học bạ</option>
+            <option value="thpt">Xét điểm thi THPT</option>
+            <option value="tuyenthang">Xét tuyển thẳng</option>
+          </select>
+          <button type="submit" style="background-color: #f57c00;">Gửi đăng ký</button>
+          <button type="button" onclick="closeDialog()">Đóng</button>
+        </form>
+      </div>
   
   <dialog id="chatDialog">
     <form method="dialog" style="padding: 0;">
@@ -295,7 +350,7 @@
       document.getElementById("formDialog").close();
     }
     function openChatDialog() {
-  document.getElementById("chatDialog").showModal();
+    document.getElementById("chatDialog").showModal();
 }
 
 function closeChatDialog() {
